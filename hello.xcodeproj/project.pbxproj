@@ -6,14 +6,73 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		45493DD92E59972000ADFDC9 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45493DD82E59972000ADFDC9 /* Quartz.framework */; };
+		45493DE62E59972000ADFDC9 /* hql.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 45493DD62E59972000ADFDC9 /* hql.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		45493DE42E59972000ADFDC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45493DB22E59718400ADFDC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45493DD52E59972000ADFDC9;
+			remoteInfo = hql;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		45493DEB2E59972000ADFDC9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				45493DE62E59972000ADFDC9 /* hql.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		45493DBA2E59718400ADFDC9 /* hello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hello.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45493DD62E59972000ADFDC9 /* hql.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = hql.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		45493DD82E59972000ADFDC9 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		45493DD12E5994EF00ADFDC9 /* Exceptions for "hello" folder in "hello" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 45493DB92E59718400ADFDC9 /* hello */;
+		};
+		45493DEA2E59972000ADFDC9 /* Exceptions for "hql" folder in "hql" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 45493DD52E59972000ADFDC9 /* hql */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		45493DBC2E59718400ADFDC9 /* hello */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				45493DD12E5994EF00ADFDC9 /* Exceptions for "hello" folder in "hello" target */,
+			);
 			path = hello;
+			sourceTree = "<group>";
+		};
+		45493DDA2E59972000ADFDC9 /* hql */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				45493DEA2E59972000ADFDC9 /* Exceptions for "hql" folder in "hql" target */,
+			);
+			path = hql;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +85,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45493DD32E59972000ADFDC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45493DD92E59972000ADFDC9 /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				45493DBC2E59718400ADFDC9 /* hello */,
+				45493DDA2E59972000ADFDC9 /* hql */,
+				45493DD72E59972000ADFDC9 /* Frameworks */,
 				45493DBB2E59718400ADFDC9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +110,17 @@
 			isa = PBXGroup;
 			children = (
 				45493DBA2E59718400ADFDC9 /* hello.app */,
+				45493DD62E59972000ADFDC9 /* hql.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		45493DD72E59972000ADFDC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45493DD82E59972000ADFDC9 /* Quartz.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +133,12 @@
 				45493DB62E59718400ADFDC9 /* Sources */,
 				45493DB72E59718400ADFDC9 /* Frameworks */,
 				45493DB82E59718400ADFDC9 /* Resources */,
+				45493DEB2E59972000ADFDC9 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				45493DE52E59972000ADFDC9 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				45493DBC2E59718400ADFDC9 /* hello */,
@@ -69,6 +149,28 @@
 			productName = hello;
 			productReference = 45493DBA2E59718400ADFDC9 /* hello.app */;
 			productType = "com.apple.product-type.application";
+		};
+		45493DD52E59972000ADFDC9 /* hql */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 45493DE72E59972000ADFDC9 /* Build configuration list for PBXNativeTarget "hql" */;
+			buildPhases = (
+				45493DD22E59972000ADFDC9 /* Sources */,
+				45493DD32E59972000ADFDC9 /* Frameworks */,
+				45493DD42E59972000ADFDC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				45493DDA2E59972000ADFDC9 /* hql */,
+			);
+			name = hql;
+			packageProductDependencies = (
+			);
+			productName = hql;
+			productReference = 45493DD62E59972000ADFDC9 /* hql.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +183,9 @@
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					45493DB92E59718400ADFDC9 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					45493DD52E59972000ADFDC9 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -100,12 +205,20 @@
 			projectRoot = "";
 			targets = (
 				45493DB92E59718400ADFDC9 /* hello */,
+				45493DD52E59972000ADFDC9 /* hql */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		45493DB82E59718400ADFDC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45493DD42E59972000ADFDC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +235,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45493DD22E59972000ADFDC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		45493DE52E59972000ADFDC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45493DD52E59972000ADFDC9 /* hql */;
+			targetProxy = 45493DE42E59972000ADFDC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		45493DC42E59718500ADFDC9 /* Debug */ = {
@@ -258,12 +386,15 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hello/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.isuyu.hello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -285,15 +416,72 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hello/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.isuyu.hello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		45493DE82E59972000ADFDC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = hql/hql.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S6C429H97P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hql/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = hql;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.isuyu.hello.hql;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		45493DE92E59972000ADFDC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = hql/hql.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S6C429H97P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = hql/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = hql;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.isuyu.hello.hql;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -316,6 +504,15 @@
 			buildConfigurations = (
 				45493DC72E59718500ADFDC9 /* Debug */,
 				45493DC82E59718500ADFDC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45493DE72E59972000ADFDC9 /* Build configuration list for PBXNativeTarget "hql" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45493DE82E59972000ADFDC9 /* Debug */,
+				45493DE92E59972000ADFDC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
