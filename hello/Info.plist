@@ -5,20 +5,34 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
-			<key>CFBundleTypeIconSystemGenerated</key>			<integer>0</integer>
-			<key>CFBundleTypeName</key>			<string>heloo doc</string>
-			<key>CFBundleTypeRole</key>			<string>Editor</string>
-			<key>LSHandlerRank</key>			<string>Owner</string>
-			<key>LSItemContentTypes</key>			<array>				<string>com.example.demohello</string>			</array>
+			<key>CFBundleTypeIconSystemGenerated</key>
+			<integer>0</integer>
+			<key>CFBundleTypeName</key>
+			<string>heloo doc</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.example.demohello</string>
+			</array>
+            <key>CFBundleTypeIconFile</key><string>helloicon</string>
 		</dict>
 	</array>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
-			<key>UTTypeConformsTo</key>			<array>				<string>public.text</string>			</array>
-			<key>UTTypeDescription</key>			<string>hellodoc</string>
-			<key>UTTypeIcons</key>			<dict/>
-			<key>UTTypeIdentifier</key>			<string>com.example.demohello</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.text</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>hellodoc</string>
+			<key>UTTypeIcons</key>
+			<dict/>
+			<key>UTTypeIdentifier</key>
+			<string>com.example.demohello</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>

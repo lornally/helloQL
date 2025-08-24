@@ -7,11 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		451231D72E5AAEF500F516F0 /* QuickLookThumbnailing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451231D62E5AAEF500F516F0 /* QuickLookThumbnailing.framework */; };
+		451231D82E5AAEF500F516F0 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45493DD82E59972000ADFDC9 /* Quartz.framework */; };
+		451231E02E5AAEF500F516F0 /* thumb.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 451231D52E5AAEF500F516F0 /* thumb.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		45493DD92E59972000ADFDC9 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45493DD82E59972000ADFDC9 /* Quartz.framework */; };
 		45493DE62E59972000ADFDC9 /* hql.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 45493DD62E59972000ADFDC9 /* hql.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		451231DE2E5AAEF500F516F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 45493DB22E59718400ADFDC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 451231D42E5AAEF500F516F0;
+			remoteInfo = thumb;
+		};
 		45493DE42E59972000ADFDC9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 45493DB22E59718400ADFDC9 /* Project object */;
@@ -29,6 +39,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				45493DE62E59972000ADFDC9 /* hql.appex in Embed Foundation Extensions */,
+				451231E02E5AAEF500F516F0 /* thumb.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,12 +47,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		451231D52E5AAEF500F516F0 /* thumb.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = thumb.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		451231D62E5AAEF500F516F0 /* QuickLookThumbnailing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLookThumbnailing.framework; path = System/Library/Frameworks/QuickLookThumbnailing.framework; sourceTree = SDKROOT; };
 		45493DBA2E59718400ADFDC9 /* hello.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = hello.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45493DD62E59972000ADFDC9 /* hql.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = hql.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		45493DD82E59972000ADFDC9 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		451231E42E5AAEF500F516F0 /* Exceptions for "thumb" folder in "thumb" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 451231D42E5AAEF500F516F0 /* thumb */;
+		};
 		45493DD12E5994EF00ADFDC9 /* Exceptions for "hello" folder in "hello" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -59,6 +79,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		451231D92E5AAEF500F516F0 /* thumb */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				451231E42E5AAEF500F516F0 /* Exceptions for "thumb" folder in "thumb" target */,
+			);
+			path = thumb;
+			sourceTree = "<group>";
+		};
 		45493DBC2E59718400ADFDC9 /* hello */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -78,6 +106,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		451231D22E5AAEF500F516F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				451231D72E5AAEF500F516F0 /* QuickLookThumbnailing.framework in Frameworks */,
+				451231D82E5AAEF500F516F0 /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45493DB72E59718400ADFDC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,6 +138,7 @@
 			children = (
 				45493DBC2E59718400ADFDC9 /* hello */,
 				45493DDA2E59972000ADFDC9 /* hql */,
+				451231D92E5AAEF500F516F0 /* thumb */,
 				45493DD72E59972000ADFDC9 /* Frameworks */,
 				45493DBB2E59718400ADFDC9 /* Products */,
 			);
@@ -111,6 +149,7 @@
 			children = (
 				45493DBA2E59718400ADFDC9 /* hello.app */,
 				45493DD62E59972000ADFDC9 /* hql.appex */,
+				451231D52E5AAEF500F516F0 /* thumb.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				45493DD82E59972000ADFDC9 /* Quartz.framework */,
+				451231D62E5AAEF500F516F0 /* QuickLookThumbnailing.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,6 +166,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		451231D42E5AAEF500F516F0 /* thumb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 451231E32E5AAEF500F516F0 /* Build configuration list for PBXNativeTarget "thumb" */;
+			buildPhases = (
+				451231D12E5AAEF500F516F0 /* Sources */,
+				451231D22E5AAEF500F516F0 /* Frameworks */,
+				451231D32E5AAEF500F516F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				451231D92E5AAEF500F516F0 /* thumb */,
+			);
+			name = thumb;
+			packageProductDependencies = (
+			);
+			productName = thumb;
+			productReference = 451231D52E5AAEF500F516F0 /* thumb.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		45493DB92E59718400ADFDC9 /* hello */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45493DC62E59718500ADFDC9 /* Build configuration list for PBXNativeTarget "hello" */;
@@ -139,6 +201,7 @@
 			);
 			dependencies = (
 				45493DE52E59972000ADFDC9 /* PBXTargetDependency */,
+				451231DF2E5AAEF500F516F0 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				45493DBC2E59718400ADFDC9 /* hello */,
@@ -182,6 +245,9 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					451231D42E5AAEF500F516F0 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					45493DB92E59718400ADFDC9 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -206,11 +272,19 @@
 			targets = (
 				45493DB92E59718400ADFDC9 /* hello */,
 				45493DD52E59972000ADFDC9 /* hql */,
+				451231D42E5AAEF500F516F0 /* thumb */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		451231D32E5AAEF500F516F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45493DB82E59718400ADFDC9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -228,6 +302,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		451231D12E5AAEF500F516F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45493DB62E59718400ADFDC9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +326,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		451231DF2E5AAEF500F516F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 451231D42E5AAEF500F516F0 /* thumb */;
+			targetProxy = 451231DE2E5AAEF500F516F0 /* PBXContainerItemProxy */;
+		};
 		45493DE52E59972000ADFDC9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 45493DD52E59972000ADFDC9 /* hql */;
@@ -253,6 +339,60 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		451231E12E5AAEF500F516F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = thumb/thumb.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = S6C429H97P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = thumb/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = thumb;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.isuyu.hello.thumb;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		451231E22E5AAEF500F516F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = thumb/thumb.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = S6C429H97P;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = thumb/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = thumb;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.isuyu.hello.thumb;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		45493DC42E59718500ADFDC9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -381,7 +521,7 @@
 				CODE_SIGN_ENTITLEMENTS = hello/hello.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = S6C429H97P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -394,7 +534,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.isuyu.hello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -411,7 +551,7 @@
 				CODE_SIGN_ENTITLEMENTS = hello/hello.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = S6C429H97P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -424,7 +564,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.isuyu.hello;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -438,7 +578,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = hql/hql.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = S6C429H97P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -451,7 +591,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.isuyu.hello.hql;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -465,7 +605,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = hql/hql.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = S6C429H97P;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -478,7 +618,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.4;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = cn.isuyu.hello.hql;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -490,6 +630,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		451231E32E5AAEF500F516F0 /* Build configuration list for PBXNativeTarget "thumb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				451231E12E5AAEF500F516F0 /* Debug */,
+				451231E22E5AAEF500F516F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		45493DB52E59718400ADFDC9 /* Build configuration list for PBXProject "hello" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

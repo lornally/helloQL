@@ -42,13 +42,14 @@
 
 | 字段                        | Info.plist位置 | 职责                 | 示例                  |
 | --------------------------- | -------------- | -------------------- | --------------------- |
-| **UTTypeIdentifier**        | 主app或扩展    | 全局唯一uti          | com.example.demohello |
+| **UTTypeIdentifier**        | 主app(或扩展)  | 全局唯一uti          | com.example.demohello |
 | **QLSupportedContentTypes** | 扩展           | 我能预览这个uti      | [uti必须一致]         |
-| LSItemContentTypes          | 主app          | 我能处理这个uti      | [uti必须一致]         |
-| **UTTypeTagSpecification**  | 主app或扩展    | 声明后缀             | demohello             |
+| **LSItemContentTypes**          | 主app          | 我能处理这个uti      | [uti必须一致]         |
+| **UTTypeTagSpecification**  | 主app(或扩展)  | 声明后缀             | demohello             |
 | **LSHandlerRank**           | 主app          | 声明对文件的负责程度 | Owner / Default       |
 
 * 具体内容参考我这个样例代码.
+* 这里面关键是每个扩展都搞且只搞: QLSupportedContentTypes
 
 #### 不要瞎鸡儿操作 耗时: 0秒
 * scheme是xcode自动控制, 不要进行任何scheme操作. 任何scheme相关操作都是对xcode的干扰,  Scheme ▸ Edit Scheme… → Executable 默认就是 Ask on Launch。 这些都不要动.
@@ -59,3 +60,7 @@
 此时, 再做一遍打包流程, 你就拥有人生中第一个quicklook了.
 
 > 全流程, 操作时长40分钟, 等待时长2天, 每次打包等待时长20分钟.
+
+###### scheme有什么用?
+* 你如果要跟踪调试设置断点, 那么你要选择一下scheme, 其他时候不要碰他.
+* 选择scheme的位置在主面板顶部
