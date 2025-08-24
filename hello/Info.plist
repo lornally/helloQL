@@ -5,6 +5,8 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>helloicon</string>
 			<key>CFBundleTypeIconSystemGenerated</key>
 			<integer>0</integer>
 			<key>CFBundleTypeName</key>
@@ -17,7 +19,6 @@
 			<array>
 				<string>com.example.demohello</string>
 			</array>
-            <key>CFBundleTypeIconFile</key><string>helloicon</string>
 		</dict>
 	</array>
 	<key>UTExportedTypeDeclarations</key>
@@ -29,8 +30,15 @@
 			</array>
 			<key>UTTypeDescription</key>
 			<string>hellodoc</string>
+			<key>UTTypeIconFile</key>
+			<string>helloicon</string>
 			<key>UTTypeIcons</key>
-			<dict/>
+			<dict>
+				<key>UTTypeIconBackgroundName</key>
+				<string>helloicon</string>
+				<key>UTTypeIconBadgeName</key>
+				<string>helloicon</string>
+			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>com.example.demohello</string>
 			<key>UTTypeTagSpecification</key>
