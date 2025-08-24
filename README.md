@@ -10,5 +10,38 @@ macos的xcode开发要点: '不要瞎鸡儿操作' 具体内容如下:
 3. xcode里面setting->account 添加这个账号. 为了后面正常, 重启一次macos吧.
 
 ###### 第二步: 新建app
-4. 随便新建mac app项目, 记得把test和storage选项选为none.
-5. 这个项目会在finder有一个目录, 这个目录随便操作, 删除移动都是自由的. 不过你干这事得时候最好关了xcode, 我没在开着xcode的时候干过, 所以不清楚是不是会有问题.
+1. 随便新建mac app项目, 记得把test和storage选项选为none.
+2. 这个项目会在finder有一个目录, 这个目录随便操作, 删除移动都是自由的. 不过你干这事得时候最好关了xcode, 我没在开着xcode的时候干过, 所以不清楚是不是会有问题.
+
+###### 打包分发
+
+1. product->archive 打包, 
+2. 此时会出现新的一行, 选择这一行, 
+3. 右侧distribute app, 面板选择 direct distribution
+4. 此时那一行条目会变成: in progress, 同样等待, 可以去玩一把游戏.
+5. 等到状态变成: ready to distribute, 此时鼠标上去这一行, 会看到按钮出现[export], 点击这个按钮, 你的第一个可以分发的软件就做好了.
+
+###### 第三步: 新建quicklook
+
+1. 左上角file -> new -> target
+2. 选择quicklook, 名字随便取, 其他都默认
+
+###### 第四步: 修改plist
+
+| 字段                        | Info.plist位置 | 职责                 | 示例                  |
+| --------------------------- | -------------- | -------------------- | --------------------- |
+| **UTTypeIdentifier**        | 主app或扩展    | 全局唯一uti          | com.example.demohello |
+| **QLSupportedContentTypes** | 扩展           | 我能预览这个uti      | [uti必须一致]         |
+| LSItemContentTypes          | 主app          | 我能处理这个uti      | [uti必须一致]         |
+| **UTTypeTagSpecification**  | 主app或扩展    | 声明后缀             | demohello             |
+| **LSHandlerRank**           | 主app          | 声明对文件的负责程度 | Owner / Default       |
+
+* 具体内容参考我这个样例代码.
+
+#### 不要瞎鸡儿操作
+* scheme是xcode自动控制, 不要进行任何scheme操作. 任何scheme相关操作都是对xcode的干扰,  Scheme ▸ Edit Scheme… → Executable 默认就是 Ask on Launch。 这些都不要动.
+* ⌘R 运行，如果弹出 Choose an app to run → 选 Finder → Replace。
+
+### 大功告成
+
+此时, 再做一遍打包流程, 你就拥有人生中第一个quicklook了.
