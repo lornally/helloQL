@@ -35,9 +35,9 @@
 			<key>UTTypeIcons</key>
 			<dict>
 				<key>UTTypeIconBackgroundName</key>
-				<string>helloicon</string>
+				<string></string>
 				<key>UTTypeIconBadgeName</key>
-				<string>helloicon</string>
+				<string></string>
 			</dict>
 			<key>UTTypeIdentifier</key>
 			<string>com.example.demohello</string>
