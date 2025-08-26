@@ -1,5 +1,5 @@
 > 要开发一个quicklook, 然后在ai的指导下一通瞎鸡儿操作, 用了一周才搞出来. 这玩意其实是: 开发一小时, 傻等两三天. 
-> 只要不瞎鸡儿操作, 还是很轻松容易的. 但是, 奈何苹果不做人, 文档拉的一塌糊涂. 为了不让后来人像我一样遭罪, 搞了这个样例项目.
+> 只要不瞎鸡儿操作, 还是很轻松容易的. 但是, 奈何苹果不做人, 文档拉的一塌糊涂. 为了不让后来人像我一样遭罪, 搞了这个样例项目: 
 
 本项目验证环境:
 
@@ -23,7 +23,7 @@
 
 ###### 第二步: 新建app 耗时: 1分钟
 1. 随便新建mac app项目, 记得把test和storage选项选为none.
-2. 这个项目会在finder有一个目录, 这个目录随便操作, 删除移动都是自由的. 不过你干这事得时候最好关了xcode, 我没在开着xcode的时候干过, 所以不清楚是不是会有问题.
+2. 这个项目会在finder有一个目录, 这个目录随便操作, 删除移动都是自由的. 曾经在开着xcode的时候不小心删除了文件夹(不过, 还是不建议大家这么干). 
 
 ###### 打包分发 耗时: 20分钟
 > 这里有一个注意的点, 这个时间很神奇的和build的值正相关, 因此, 保持build为1吧, 如果不信, 你改成200试试就知道了.
@@ -64,3 +64,66 @@
 ###### scheme有什么用?
 * 你如果要跟踪调试设置断点, 那么你要选择一下scheme, 其他时候不要碰他.
 * 选择scheme的位置在主面板顶部
+
+## 爬坑 - 即便按照前面的介绍操作, 还是很有可能quicklook不生效
+### debug一般不会生效
+1. 要打包为app
+2. 要等待, 等一下才能好
+
+#### 要点DTI
+* 别用${dti}这种参数化形式, 实测不支持macos15.6 xcode 16.4
+* 还有一个不生效的原因(非常扯淡, 垃圾苹果): 主程序 info, 有两个描述字段必填:
+  1. document type 的 name
+  2. exported type identifier 的 discription
+
+#### 需要的操作
+* general -> minimum deployment : macos 12
+* QLSupportedContentTypes, 这个要维护, 把自己的doc的DTI加进去
+* 然后不需要任何操作了. 发生问题就清理缓存
+
+#### 修改代码
+PreviewProvider.swift 决定“要不要提供预览”以及“用哪个 ViewController 来展示”。
+PreviewViewController.swift 负责“真正把预览内容画出来”。
+因此：
+想让文件被识别并弹出预览窗口 → 改 PreviewProvider.swift。
+想看到预览窗口里具体显示什么 → 改 PreviewViewController.swift。
+
+#### 如果不生效
+* 清理缓存, 参见下一个段落
+如果不行, 多清几次, 然后, 等等时间
+
+## 对抗系统注册/设置的缓存问题
+
+### 管理(正常操作)
+系统设置-> 通用 -> 登录项与管理 -> 这里有几乎所有的管理内容.
+
+### 改名
+1. 改扩展名, UTTypeTagSpecification
+
+2. 改UTI,  至少要改三个地方
+
+   主app的doccument type和exported type
+
+   ql扩展的QLsupportContentType
+
+3. 直接把项目换个 Bundle ID（比如 cn.isuyu.hello2.hql），重新签名运行——系统会当作全新扩展注册，几乎 100% 立即生效。
+
+### 清理缓存
+```sh
+# 0. 重置 Quick Look 服务器
+qlmanage -r cache
+
+# 1. 刷新你的扩展
+pluginkit -a /Applications/YourApp.app/Contents/PlugIns/*.qlgenerator
+pluginkit -a /Applications/YourApp.app/Contents/PlugIns/*.appex
+
+# 2. 杀死 Quick Look 守护进程, 系统服务缓存
+pkill -f quicklookd
+killall Finder
+killall QuickLookUIService
+# 这里是全系统的缓存, 所以系统重建索引要十几分钟
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+-kill：注销所有缓存
+-r：递归扫描并重建
+三个 -domain：把本地/系统/用户三个域全部清掉
+```
