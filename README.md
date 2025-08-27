@@ -100,8 +100,8 @@
    1. document type 的 name
    2. exported type identifier 的 discription
 * 是否修改代码过ql代码, 如果不改代码, ql部分会默认调用父类, 也就是啥也不做, 这又是苹果逆天的地方, 一般情况下, 开源框架在此时好歹会显示一个hello world, 修改位置:
-    1 PreviewProvider.swift 决定“要不要提供预览”以及“用哪个 ViewController 来展示”。
-    2 PreviewViewController.swift 负责“真正把预览内容画出来”。
+    1. PreviewProvider.swift 决定“要不要提供预览”以及“用哪个 ViewController 来展示”。
+    2. PreviewViewController.swift 负责“真正把预览内容画出来”。
     * 代码参见样例代码
 
 
