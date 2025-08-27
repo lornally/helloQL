@@ -65,28 +65,45 @@
 * 你如果要跟踪调试设置断点, 那么你要选择一下scheme, 其他时候不要碰他.
 * 选择scheme的位置在主面板顶部
 
-## 爬坑 - 即便按照前面的介绍操作, 还是很有可能quicklook不生效
-### debug一般不会生效
+## 爬坑 - quicklook不生效 - 苹果的智熄设计还在C
+### 无法理解的脑残设计
+
+* 为什么minimum deployment macos这个要逐个设置? 
+* 灵魂问题: 什么情况下, 主app和扩展要不同的系统兼容性?
+
+### 莫名奇妙的系统特性: 
+
+* debug一般不会生效
+
 1. 要打包为app
 2. 要等待, 等一下才能好
 
-#### 要点DTI
-* 别用${dti}这种参数化形式, 实测不支持macos15.6 xcode 16.4
+#### 脑花清奇 UTI 
+* UTI别用${uti}这种参数化形式, 实测不支持(macos15.6 xcode 16.4)
+* 如果要改UTI, 那么要同步主app和所有扩展
+* 不禁要发出灵魂拷问: 主app为什么要使用和扩展不一样的UTI?
+
+#### 脑子进水了, 莫名的必填字段
+
 * 还有一个不生效的原因(非常扯淡, 垃圾苹果): 主程序 info, 有两个描述字段必填:
   1. document type 的 name
   2. exported type identifier 的 discription
 
-#### 需要的操作
-* general -> minimum deployment : macos 12
-* QLSupportedContentTypes, 这个要维护, 把自己的doc的DTI加进去
-* 然后不需要任何操作了. 发生问题就清理缓存
+#### 不生效自查内容: 
 
-#### 修改代码
-PreviewProvider.swift 决定“要不要提供预览”以及“用哪个 ViewController 来展示”。
-PreviewViewController.swift 负责“真正把预览内容画出来”。
-因此：
-想让文件被识别并弹出预览窗口 → 改 PreviewProvider.swift。
-想看到预览窗口里具体显示什么 → 改 PreviewViewController.swift。
+* 是不是在debug, debug不生效很正常, 打包之后再测
+* 一定要保证主程序和扩展的兼容macos版本一致性: general -> minimum deployment : macos 12
+* 保证主app和扩展的UTI一致性, 并且要使用正常字符(只有: 26个小写字母和小数点), 不能有任何符号
+  * 主app至少有两个UTI要一致, 一个是document type, 一个是exported type(定义扩展名的那个)
+  * 如果是quicklook扩展, 要检查QLSupportedContentTypes,  同样要保持一致的UTI
+* 确保两个必填字段有内容: 
+   1. document type 的 name
+   2. exported type identifier 的 discription
+* 是否修改代码过ql代码, 如果不改代码, ql部分会默认调用父类, 也就是啥也不做, 这又是苹果逆天的地方, 一般情况下, 开源框架在此时好歹会显示一个hello world, 修改位置:
+    1 PreviewProvider.swift 决定“要不要提供预览”以及“用哪个 ViewController 来展示”。
+    2 PreviewViewController.swift 负责“真正把预览内容画出来”。
+    * 代码参见样例代码
+
 
 #### 如果不生效
 * 清理缓存, 参见下一个段落
